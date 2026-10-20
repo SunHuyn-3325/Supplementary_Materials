@@ -1,0 +1,120 @@
+{
+  "_meta": {
+    "description": "Calibration parameters for the synthetic Vietnamese e-commerce dataset. Each parameter has an STT matching Bang_tong_hop_input_Buoc3.md.",
+    "version": "2024-B4-v1",
+    "confidence_levels": ["chinh_thuc", "bao_cao_co_file", "thu_cap", "gia_dinh"]
+  },
+
+  "simulation": {
+    "N_CUSTOMERS": 50000,
+    "SIM_START": "2023-01-01",
+    "SIM_END": "2024-12-31",
+    "ANALYSIS_DATE": "2024-12-31",
+    "SEED": 42,
+    "source": "Step 2 (Quy_tac_tinh_toan_RFM-D.md): ANALYSIS_DATE = last day of the last complete month in the data",
+    "confidence": "gia_dinh"
+  },
+
+  "province_share_gmv": {
+    "Hồ Chí Minh": { "value": 0.20, "stt": 21, "source": "Metric Q1/2024, 5 platforms: HCMC > 14,000 bn VND out of 71,200 bn VND (rounded)", "confidence": "thu_cap" },
+    "Hà Nội":      { "value": 0.28, "stt": 21, "source": "Metric Q1/2024, 5 platforms: Hanoi > 20,000 bn VND out of 71,200 bn VND (rounded)", "confidence": "thu_cap" }
+  },
+
+  "province_base_weights_rest": {
+    "_note": "Relative weights for the 13 remaining provinces and 'Other'. Normalised so the total equals 1 - (HCMC + Hanoi). Assumption (STT 38).",
+    "Bình Dương": 0.0195, "Đồng Nai": 0.0125, "Hải Phòng": 0.0120, "Đà Nẵng": 0.0120,
+    "Thanh Hóa": 0.0102, "Nghệ An": 0.0094, "Cần Thơ": 0.0072, "Bà Rịa - Vũng Tàu": 0.0070,
+    "Long An": 0.0067, "Khánh Hòa": 0.0064, "Tiền Giang": 0.0052, "Kiên Giang": 0.0052,
+    "An Giang": 0.0051, "Other": 0.1816,
+    "confidence": "gia_dinh"
+  },
+
+  "platform_share": {
+    "Shopee":      { "value": 0.667, "stt": 20, "source": "VnExpress 2024 (GMV share of the 4 platforms, 13.8 bn USD)", "confidence": "thu_cap" },
+    "TikTok Shop": { "value": 0.269, "stt": 20, "source": "VnExpress 2024 (GMV share of the 4 platforms, 13.8 bn USD)", "confidence": "thu_cap" },
+    "Lazada":      { "value": 0.055, "stt": 41, "source": "Remainder 0.064 split by an assumed ratio of 6:1", "confidence": "gia_dinh" },
+    "Tiki":        { "value": 0.009, "stt": 41, "source": "Remainder 0.064 split by an assumed ratio of 6:1", "confidence": "gia_dinh" }
+  },
+
+  "category_share": {
+    "Fashion & Accessories":          { "value": 0.265, "stt": 22, "source": "YouNet ECI Q4/2024 (via secondary summary)", "confidence": "thu_cap" },
+    "FMCG":                           { "value": 0.166, "stt": 22, "source": "YouNet ECI Q4/2024 (via secondary summary)", "confidence": "thu_cap" },
+    "Electronics & Home Appliances":  { "value": 0.158, "stt": 22, "source": "YouNet ECI Q4/2024: 'Điện gia dụng & công nghệ' (home appliances & technology) grouped as one category", "confidence": "thu_cap" },
+    "Beauty & Personal Care":         { "value": 0.131, "stt": 22, "source": "YouNet ECI Q4/2024: 'Sắc đẹp' (beauty)", "confidence": "thu_cap" },
+    "Other":                          { "value": 0.280, "stt": 40, "source": "Remainder: 1 minus the total of the four categories above", "confidence": "gia_dinh" }
+  },
+
+  "category_aov_vnd": {
+    "Fashion & Accessories":         { "value": 280000,  "stt": 39, "confidence": "gia_dinh" },
+    "FMCG":                          { "value": 120000,  "stt": 39, "confidence": "gia_dinh" },
+    "Electronics & Home Appliances": { "value": 1364000, "stt": 39, "confidence": "gia_dinh", "note": "Weighted average of Home Appliances (950,000) and Electronics (1,800,000) using the previous shares" },
+    "Beauty & Personal Care":        { "value": 195000,  "stt": 39, "confidence": "gia_dinh" },
+    "Other":                         { "value": 200000,  "stt": 39, "confidence": "gia_dinh" }
+  },
+
+  "payment_share_by_count": {
+    "_note": "Share by transaction count, rounded. The total is 1.01 due to rounding; it is normalised in code.",
+    "Cash on Delivery (COD)":     { "value": 0.67, "stt": 18, "source": "PCMI E-commerce Data Library (updated 11/2024); secondary confirmation from Kinh tế & Tài chính journal (COD ~67%)", "confidence": "thu_cap" },
+    "E-wallet":                   { "value": 0.18, "stt": 18, "source": "PCMI", "confidence": "thu_cap" },
+    "Credit Card":                { "value": 0.08, "stt": 18, "source": "PCMI", "confidence": "thu_cap" },
+    "Debit Card":                 { "value": 0.03, "stt": 18, "source": "PCMI", "confidence": "thu_cap" },
+    "Bank Transfer":              { "value": 0.03, "stt": 18, "source": "PCMI", "confidence": "thu_cap" },
+    "Buy Now Pay Later (BNPL)":   { "value": 0.02, "stt": 18, "source": "PCMI", "confidence": "thu_cap" }
+  },
+
+  "payment_digital_methods": ["E-wallet", "Credit Card", "Debit Card", "Bank Transfer"],
+
+  "urban_payment_tilt": {
+    "urban_cities": ["Hồ Chí Minh", "Hà Nội", "Đà Nẵng"],
+    "tilt_by_method": [0.8, 1.6, 1.6, 1.6, 1.6, 1.6],
+    "stt": 43,
+    "confidence": "gia_dinh",
+    "note": "Qualitative direction only; the magnitude is a simulation parameter"
+  },
+
+  "tet": {
+    "dates": ["2023-01-22", "2024-02-10"],
+    "window_days": 21,
+    "order_multiplier": 2.5,
+    "mega_sale_multiplier": 3.0,
+    "mega_sale_days": [[11, 11], [12, 12]],
+    "stt": [35, 36, 37],
+    "confidence": "gia_dinh",
+    "note": "Tết dates are verified. The 2.5x and 3.0x multipliers are assumptions. Metric pre-Tết 2025 data shows +9% revenue and +5% volume, which does not match 2.5x"
+  },
+
+  "geo_score_tier": {
+    "tiers": { "Hồ Chí Minh": 3, "Hà Nội": 3, "Đà Nẵng": 2, "Hải Phòng": 2, "Cần Thơ": 2, "Bình Dương": 2, "Đồng Nai": 2, "Bà Rịa - Vũng Tàu": 2, "Long An": 2, "Khánh Hòa": 2, "Thanh Hóa": 2, "Nghệ An": 2, "Tiền Giang": 2, "Kiên Giang": 2, "An Giang": 2, "Other": 1 },
+    "stt": 42,
+    "confidence": "gia_dinh",
+    "note": "3/2/1 scale from the theoretical framework (Large Urban / Medium Urban / Rural). No official urban classification by province exists yet, so this is an assumption"
+  },
+
+  "validation_tolerance": {
+    "cod_share_abs": 0.02,
+    "tet_ratio_rel": 0.20,
+    "province_gmv_share_abs": 0.03,
+    "note": "Thresholds for flagging a check as 'LỆCH' in calibration_log.json"
+  },
+
+  "purchase_frequency": {
+    "gamma_shape": 1.5,
+    "gamma_scale": 3.5,
+    "clip_min": 0.5,
+    "clip_max": 24,
+    "stt": 44,
+    "confidence": "gia_dinh",
+    "note": "Assumed distribution of purchases per year. No Vietnam-specific source; chosen by hand, not calibrated"
+  },
+
+  "rfmd_rules": {
+    "source": "Step 2 (Quy_tac_tinh_toan_RFM-D.md)",
+    "min_transactions": 2,
+    "f_m_window_months": 12,
+    "k_range": [2, 8],
+    "kmeans_n_init": 10,
+    "gmm_seeds": [0, 42, 123],
+    "gmm_n_init": 10,
+    "scaling": "minmax"
+  }
+}

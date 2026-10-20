@@ -1,0 +1,117 @@
+{
+  "generated_at": "2026-10-15T15:33:26",
+  "params_file": "vn_calibration_en.json",
+  "checks": [
+    {
+      "check": "Payment method Cash on Delivery (COD)",
+      "target": 0.6634,
+      "actual": 0.6624,
+      "deviation": -0.001,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Payment method E-wallet",
+      "target": 0.1782,
+      "actual": 0.1788,
+      "deviation": 0.0006,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Payment method Credit Card",
+      "target": 0.0792,
+      "actual": 0.0797,
+      "deviation": 0.0005,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Payment method Debit Card",
+      "target": 0.0297,
+      "actual": 0.03,
+      "deviation": 0.0003,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Payment method Bank Transfer",
+      "target": 0.0297,
+      "actual": 0.0292,
+      "deviation": -0.0005,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Payment method Buy Now Pay Later (BNPL)",
+      "target": 0.0198,
+      "actual": 0.0199,
+      "deviation": 0.0001,
+      "tolerance": 0.02,
+      "status": "OK"
+    },
+    {
+      "check": "Orders/day ratio: Tết window ÷ normal days (2024)",
+      "target": 2.5,
+      "actual": 2.0891,
+      "deviation": -0.1644,
+      "tolerance": 0.2,
+      "status": "OK"
+    },
+    {
+      "check": "Customer share Hồ Chí Minh",
+      "target": 0.2,
+      "actual": 0.1987,
+      "deviation": -0.0013,
+      "tolerance": 0.03,
+      "status": "OK"
+    },
+    {
+      "check": "Customer share Hà Nội",
+      "target": 0.28,
+      "actual": 0.2854,
+      "deviation": 0.0054,
+      "tolerance": 0.03,
+      "status": "OK"
+    },
+    {
+      "check": "GMV share Hồ Chí Minh",
+      "target": 0.2,
+      "actual": 0.2038,
+      "deviation": 0.0038,
+      "tolerance": 0.03,
+      "status": "OK"
+    },
+    {
+      "check": "GMV share Hà Nội",
+      "target": 0.28,
+      "actual": 0.2841,
+      "deviation": 0.0041,
+      "tolerance": 0.03,
+      "status": "OK"
+    }
+  ],
+  "checks_ok": 11,
+  "checks_total": 11,
+  "rfm_filter": {
+    "customers_total": 50000,
+    "orders_total": 337464,
+    "orders_completed_in_window": 276763,
+    "lines_in_window": 692118,
+    "gift_card_filter": "not applied (simulated data has no gift cards)",
+    "customers_eligible_ge2_lines": 44157,
+    "rfmd_rows": 50000
+  },
+  "best_k": 2,
+  "silhouette_best": 0.3141,
+  "davies_bouldin_best": 1.3339,
+  "gmm_seed_spread": {
+    "2": 0.0,
+    "3": 107395.28,
+    "4": 116366.43,
+    "5": 46144.22,
+    "6": 39467.2,
+    "7": 24972.18,
+    "8": 36890.14
+  }
+}
