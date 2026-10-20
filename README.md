@@ -9,6 +9,7 @@ Tài liệu này đi kèm bài báo "RFM-D: Extending RFM with Seasonal, Payment
   - `h1_rfmd_vs_rfm3.py`: so sánh Silhouette giữa RFM-D và RFM ba biến (H1)
   - `h2_h5_regression.py`: hồi quy OLS (CLV) và logit (churn), kèm VIF (H2–H5)
   - `h2_h5_split.py`: kiểm tra độ ổn định của hệ số trên tập huấn luyện 80%
+  - `shap_churn.py`: SHAP cho mô hình churn 8 biến (Mục 4.6), kết quả ghi ở `shap_churn_result.csv`
   - `evaluate_models.py`: đánh giá mô hình CLV (R², MAE, RMSE) và churn (AUC-ROC, F1, PR-AUC, MCC) theo Mục 3.7 và Bảng 5
 - `params/`: tham số calibrate và nhật ký kiểm chứng
   - `vn_calibration_en.json`: toàn bộ tham số dùng để sinh dữ liệu mô phỏng (có chú thích STT khớp với Phụ lục A)
@@ -50,7 +51,13 @@ pip install pandas numpy statsmodels scikit-learn xgboost imbalanced-learn
    python code/evaluate_models.py data/model_dataset.csv
    ```
 
-4. Chạy so sánh Silhouette (kết quả mong đợi: RFM-D k = 2, Silhouette 0,314; RFM ba biến k = 2, Silhouette 0,512):
+4. Chạy SHAP cho mô hình churn:
+
+   ```bash
+   python code/shap_churn.py data/model_dataset.csv
+   ```
+
+5. Chạy so sánh Silhouette (kết quả mong đợi: RFM-D k = 2, Silhouette 0,314; RFM ba biến k = 2, Silhouette 0,512):
 
    ```bash
    python code/h1_rfmd_vs_rfm3.py data/customers_segmented.csv

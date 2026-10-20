@@ -1,0 +1,9 @@
+feature,mean_abs_shap,"corr(value, shap)"
+frequency,0.7296,-0.9488
+tenure,0.28,0.9557
+product_diversity,0.0544,-0.8068
+geo_score,0.0528,-0.5248
+monetary,0.05,-0.7365
+recency,0.0397,0.7335
+payment_diversity,0.0243,-0.1918
+seasonal_index,0.0161,-0.1459
